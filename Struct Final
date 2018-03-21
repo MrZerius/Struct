@@ -1,6 +1,5 @@
 //By MrZ
 
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
@@ -30,6 +29,7 @@ struct cliente{
 char nombre[20];
 char id[10];
 char direccion[50];
+char camb_nombre[20];
 unsigned long tel;
 }cli[3] , *pcli=cli;
 
@@ -209,21 +209,29 @@ printf("\n\n");
 void modificar_cli(){
 	
 	printf("\n\nQUE DESEAS MODIFICAR: ");
-	
+	int nom;
+	int cc;
+	int dir;
+	int tel;
 	for( i=0;i<cantidad_cli;i++){
-	   printf("\n\nposicion[%1d]:",i);
-       printf("\n\nEl Nombre es:");
+	   printf("\n\nposicion[%1d]: ",i);
+       printf("\n\n (1): El Nombre es: ");
        printf("%s",(pcli + i) -> nombre);
-       printf("\nLA Cedula del cliente es:");
+       printf("\n (2): La Cedula del cliente es: ");
        printf((pcli + i) -> id,10,stdin);
-       printf("\nlA Direccion ES:");
+       printf("\n (3): la Direccion ES: ");
        printf((pcli + i) -> direccion);
-       printf("\nEL Telefono ES :");
+       printf("\n (4): El Telefono ES :");
        printf("%lu",(pcli + i) ->tel);
 	
 printf("\n\n");
  }
+ 			printf("Que desea modificar \n");
             scanf("%d", &opc);
+            printf("Ingrese los nuevos datos ");
+          //  scanf("%d",&nom);
+         //	printf("Ingrese la cedula nueva ");
+        
             switch(opc){
             	
                 
@@ -231,23 +239,23 @@ printf("\n\n");
                     system("cls");
                     fflush(stdin);
                     printf("\n\nNombre:",i);
-		            fgets((pcli + i) -> nombre, 30, stdin);
+		            fgets((pcli + nom) -> nombre, 30, stdin);
                     break;
                 case 2:
                     system("cls");
-                    printf("\nCedula del cliente:");
-		            fgets((pcli + i) -> id, 10, stdin);
+                    printf("\n Cedula del cliente:");
+		            scanf((pcli + cc) -> id, 10, stdin);
                     break;
                  case 3:
                     system("cls");
-                    printf("\nlA Direccion ES:");
-                    printf((pcli + i) -> direccion);
+                    printf("\n La Direccion ES:");
+                    scanf((pcli + dir) -> direccion);
                     break;
                     
                    case 4:
                     system("cls"); 
-					printf("\nEL Telefono ES :");
-                    printf("%lu",(pcli + i) ->tel); 
+					printf("\n El Telefono ES :");
+                    scanf("%lu",(pcli + tel) ->tel); 
             
                 default:
                     system("cls");
